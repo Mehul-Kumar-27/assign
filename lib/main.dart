@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:assign/components/confirm_drive.dart';
 import 'package:assign/components/driver_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -103,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: Colors.black,
                 onPressed: () => showModalBottomSheet(
                     context: context,
-                    builder: (context) => DriverDetails(),
+                    builder: (context) => const DriverDetails(),
                     isScrollControlled: true,
                     backgroundColor: Colors.transparent,
                     shape: const RoundedRectangleBorder(
@@ -123,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: Colors.black,
                 onPressed: () => showModalBottomSheet(
                     context: context,
-                    builder: (context) => ConfirmDrive(),
+                    builder: (context) => const ConfirmDrive(),
                     isScrollControlled: true,
                     backgroundColor: Colors.white,
                     shape: const RoundedRectangleBorder(
@@ -182,152 +183,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
-class ConfirmDrive extends StatelessWidget {
-  const ConfirmDrive({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 300,
-      width: MediaQuery.of(context).size.width,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(40),
-          topRight: Radius.circular(40),
-        ),
-      ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Material(
-              elevation: 10,
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                height: 85,
-                width: MediaQuery.of(context).size.width * 0.9,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(7.0),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            "assets/ambulance.jpg",
-                            height: 50,
-                            width: 60,
-                          ),
-                          Text(
-                            "Standard",
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Rs 172",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            height: 20,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "3 min",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Estimaded trip time"),
-                      Text(
-                        "24 min",
-                        style: TextStyle(color: Colors.blue),
-                      )
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.credit_card),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text("****75646")
-                  ],
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width * 0.6,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Center(
-                  child: Text(
-                "Confirm",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              )),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
 
 class DriveSelect extends StatelessWidget {
   const DriveSelect({super.key});
