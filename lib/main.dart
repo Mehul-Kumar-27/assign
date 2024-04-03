@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:assign/components/driver_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
@@ -181,122 +182,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class DriverDetails extends StatelessWidget {
-  const DriverDetails({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          height: 400,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.transparent,
-        ),
-        Positioned(
-          bottom: 0,
-          child: Container(
-            height: 300,
-            width: MediaQuery.of(context).size.width,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(40),
-                topRight: Radius.circular(40),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          top: 76,
-          left: 6,
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: Column(
-              children: [
-                CircleAvatar(
-                  backgroundColor: Colors.white,
-                  radius: 50,
-                  child: Icon(Icons.person, size: 50.0, color: Colors.grey),
-                ),
-                Column(
-                  children: [
-                    Text("Patrik"),
-                  ],
-                )
-              ],
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: 200,
-          left: 250,
-          child: Column(
-            children: [
-              Container(
-                height: 40,
-                width: 90,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: Text(
-                    "HSD769",
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              Text("Volkswagen Polo")
-            ],
-          ),
-        ),
-        Positioned(
-          bottom: 50,
-          left: 30,
-          child: Row(
-            children: [
-              Container(
-                height: 50,
-                width: MediaQuery.of(context).size.width * 0.6,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                    child: Text(
-                  "Confirm",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Center(
-                      child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.close),
-                  )))
-            ],
-          ),
-        )
-      ],
-    );
-  }
-}
 
 class ConfirmDrive extends StatelessWidget {
   const ConfirmDrive({
