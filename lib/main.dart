@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: ''),
     );
   }
 }
@@ -82,15 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
       body: Stack(
         children: [
           FlutterMap(
@@ -105,50 +96,65 @@ class _MyHomePageState extends State<MyHomePage> {
               ]),
           Align(
             alignment: Alignment.bottomCenter,
-            child: FloatingActionButton(
-              onPressed: () => showModalBottomSheet(
-                  context: context,
-                  builder: (context) => DriverDetails(),
-                  isScrollControlled: true,
-                  backgroundColor: Colors.transparent,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20)))),
-              tooltip: 'Increment',
-              child: const Icon(Icons.add),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: FloatingActionButton(
+                backgroundColor: Colors.black,
+                onPressed: () => showModalBottomSheet(
+                    context: context,
+                    builder: (context) => DriverDetails(),
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20)))),
+                tooltip: 'Increment',
+                child: const Icon(Icons.person, color: Colors.white),
+              ),
             ),
           ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: FloatingActionButton(
-              onPressed: () => showModalBottomSheet(
-                  context: context,
-                  builder: (context) => ConfirmDrive(),
-                  isScrollControlled: true,
-                  backgroundColor: Colors.white,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20)))),
-              tooltip: 'Increment',
-              child: const Icon(Icons.add),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 30, left: 20),
+              child: FloatingActionButton(
+                backgroundColor: Colors.black,
+                onPressed: () => showModalBottomSheet(
+                    context: context,
+                    builder: (context) => ConfirmDrive(),
+                    isScrollControlled: true,
+                    backgroundColor: Colors.white,
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20)))),
+                tooltip: 'Increment',
+                child: const Icon(
+                  Icons.car_rental_rounded,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => showModalBottomSheet(
-            context: context,
-            builder: (context) => buildScroableSheet(),
-            isScrollControlled: true,
-            backgroundColor: Colors.transparent,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40)))),
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 20),
+        child: FloatingActionButton(
+          backgroundColor: Colors.black,
+          onPressed: () => showModalBottomSheet(
+              context: context,
+              builder: (context) => buildScroableSheet(),
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40)))),
+          tooltip: 'Increment',
+          child: const Icon(Icons.search, color: Colors.white),
+        ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
