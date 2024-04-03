@@ -289,26 +289,6 @@ class DriverDetails extends StatelessWidget {
         )
       ],
     );
-    // return Container(
-    //   height: 300,
-    //   width: MediaQuery.of(context).size.width,
-    //   child: Stack(
-    //     children: [
-    //       Positioned(
-    //           bottom: 200,
-    //           child: Container(
-    //             decoration: BoxDecoration(
-    //               shape: BoxShape.circle,
-    //             ),
-    //             child: CircleAvatar(
-    //               backgroundColor: Colors.grey,
-    //               radius: 40,
-    //               child: Icon(Icons.person),
-    //             ),
-    //           ))
-    //     ],
-    //   ),
-    // );
   }
 }
 
@@ -433,19 +413,24 @@ class ConfirmDrive extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          Container(
-            height: 50,
-            width: MediaQuery.of(context).size.width * 0.6,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(20),
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              height: 50,
+              width: MediaQuery.of(context).size.width * 0.6,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                  child: Text(
+                "Confirm",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              )),
             ),
-            child: Center(
-                child: Text(
-              "Confirm",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-            )),
           )
         ],
       ),
